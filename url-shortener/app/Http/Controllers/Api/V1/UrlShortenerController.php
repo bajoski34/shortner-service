@@ -26,6 +26,7 @@ class UrlShortenerController extends Controller
 
         return response()->json([
             'short_url' => url($shortCode),
+            'code' => $shortCode,
             'long_url' => $request->url,
         ]);
     }
@@ -38,7 +39,8 @@ class UrlShortenerController extends Controller
 
         return response()->json([
             'short_url' => url("/$shortCode"),
-            'original_url' => $request->url,
+            'code' => $shortCode,
+            'long_url' => $request->url,
         ]);
     }
 
@@ -51,6 +53,6 @@ class UrlShortenerController extends Controller
             return response()->json(['error' => 'URL not found'], 404);
         }
 
-        return response()->json(['original_url' => $originalUrl]);
+        return response()->json(['long_url' => $originalUrl]);
     } 
 }

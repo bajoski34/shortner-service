@@ -16,6 +16,6 @@ class UrlShortenerController extends Controller
             return "<h3>This URL is no longer valid</h3>";
         }
 
-        return redirect()->to($shortUrl->long_url, 301);
+        return redirect()->to($shortUrl, 301);
     }
 }
