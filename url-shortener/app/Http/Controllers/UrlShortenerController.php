@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ShortenedUrl;
+use Illuminate\Support\Facades\Cache;
 
 class UrlShortenerController extends Controller
 {
     public function redirect($shortCode)
     {
-        $shortUrl = ShortenedUrl::where('short_code', $shortCode)->firstOrFail();
+        $shortUrl = Cache::get($shortCode, null);
+
+        if(!$shortUrl) {
+            return "<h3>This URL is no longer valid</h3>";
+        }
 
         return redirect()->to($shortUrl->long_url, 301);
     }

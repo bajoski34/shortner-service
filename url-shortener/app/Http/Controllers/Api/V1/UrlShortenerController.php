@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\CreateShortsRequest;
+use App\Http\Requests\ShortCodeDecodeRequest;
 use App\Models\ShortenedUrl;
 use Illuminate\Support\Facades\Cache;
 use App\Http\Controllers\Controller;
@@ -41,9 +42,8 @@ class UrlShortenerController extends Controller
         ]);
     }
 
-    public function decode(Request $request)
+    public function decode(ShortCodeDecodeRequest $request)
     {
-        $request->validate(['short_code' => 'required|string']);
         
         $originalUrl = Cache::get($request->short_code);
 

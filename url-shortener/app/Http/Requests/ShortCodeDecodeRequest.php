@@ -22,8 +22,7 @@ class ShortCodeDecodeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'url' => 'required|url',
-            'expires' => 'nullable|integer', # TODO: possible max value can be added.
+            'short_code' => 'required|string',
         ];
     }
 }
