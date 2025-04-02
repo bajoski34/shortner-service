@@ -22,6 +22,10 @@ Start the application.
 ```shell
 php artisan serve
 ```
+To test the system run the command below
+```shell
+php artisan  test
+```
 
 # Routes
 
