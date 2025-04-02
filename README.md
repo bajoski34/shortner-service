@@ -62,7 +62,7 @@ curl --location 'https://8000-idx-shortner-service-1743505012037.cluster-l6vkdpe
 
 ## Possible Issues
 
-if any of the requests have your redirected back to the homepage, ensure you have the Accept header set to `application/json`.That way you can get request validation errors shown.
+if any of the requests have you redirected back to the homepage, ensure you have the Accept header set to `application/json`.That way you can get request validation errors shown.
 
 
 
